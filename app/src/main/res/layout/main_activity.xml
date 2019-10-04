@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:orientation="horizontal"
+    android:background="#000000" >
+    
+	<LinearLayout
+	    android:layout_width="0dip"
+	    android:layout_weight="75"
+	    android:layout_height="match_parent"
+	    android:weightSum="100"
+	    android:orientation="vertical"
+	    android:layout_margin="1dip">
+	    
+	    <FrameLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dip"
+	        android:layout_weight="75"
+	        android:background="#808080"
+	        android:layout_marginBottom="1dip">
+	        
+		    <FrameLayout
+		        android:id="@+id/Layout_Main_Preview"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"/>
+	        
+	        <SeekBar
+	            android:id="@+id/Seek_Main_Resolution"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="left|bottom"
+	            android:visibility="gone"/>
+
+	        <TextView
+	            android:id="@+id/Text_Main_GpsStatus"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textStyle="bold"
+	            android:layout_gravity="left|top"/>
+	            "
+	        <ImageView
+	            android:id="@+id/Image_Main_Preview"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:visibility="gone"
+	            android:scaleType="fitXY"/>"
+	        
+	    </FrameLayout>
+	    
+        <ImageView
+            android:id="@+id/Image_Main_Plate"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="25"
+	        android:background="#808080"
+            android:scaleType="fitXY"/>
+	    
+    
+	</LinearLayout>
+	
+	<LinearLayout
+	    android:layout_width="0dip"
+	    android:layout_weight="25"
+	    android:layout_height="match_parent"
+	    android:weightSum="90"
+	    android:orientation="vertical" >
+    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dip"
+	        android:layout_weight="30"
+	        android:orientation="vertical"
+	        android:weightSum="100"
+			android:tag="1"
+	        android:onClick="infoClickListener"
+	        android:layout_marginBottom="2dip">
+	        
+	        <ImageView
+	            android:id="@+id/Image_Main_FoundFull_1"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dip"
+	            android:layout_weight="50"
+		        android:background="#404040"
+	            android:scaleType="fitXY"/>
+	        			
+	        <ImageView
+	            android:id="@+id/Image_Main_FoundPlate_1"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dip"
+	            android:layout_weight="25"
+		        android:background="#404040"
+	            android:scaleType="fitXY"/>
+	        	        
+	        <TextView
+	            android:id="@+id/Text_Main_Plate_1"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dip"
+	            android:layout_weight="25"
+		        android:background="#404040"
+		        android:textColor="#a0a0a0"
+	            android:textStyle="bold"
+	            android:gravity="center"
+	            android:layout_marginBottom="1dip"
+	            android:typeface="monospace"/>"
+	        
+	    </LinearLayout>
+    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dip"
+	        android:layout_weight="30"
+	        android:orientation="vertical"
+	        android:weightSum="100"
+			android:tag="2"
+			android:onClick="infoClickListener"
+	        android:layout_marginBottom="2dip">
+	        
+	        <ImageView
+	            android:id="@+id/Image_Main_FoundFull_2"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dip"
+	            android:layout_weight="50"
+		        android:background="#404040"
+	            android:scaleType="fitXY"/>
+	        			
+	        <ImageView
+	            android:id="@+id/Image_Main_FoundPlate_2"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dip"
+	            android:layout_weight="25"
+		        android:background="#404040"
+	            android:scaleType="fitXY"/>
+	        	        
+	        <TextView
+	            android:id="@+id/Text_Main_Plate_2"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dip"
+	            android:layout_weight="25"
+		        android:background="#404040"
+		        android:textColor="#a0a0a0"
+	            android:textStyle="bold"
+	            android:gravity="center"
+	            android:layout_marginBottom="1dip"
+	            android:typeface="monospace"/>
+	        
+	    </LinearLayout>
+	    	    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dip"
+	        android:layout_weight="30"
+	        android:orientation="vertical"
+			android:tag="3"
+			android:onClick="infoClickListener"
+	        android:weightSum="100">
+	        
+	        <ImageView
+	            android:id="@+id/Image_Main_FoundFull_3"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dip"
+	            android:layout_weight="50"
+		        android:background="#404040"
+	            android:scaleType="fitXY"/>
+	        			
+	        <ImageView
+	            android:id="@+id/Image_Main_FoundPlate_3"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dip"
+	            android:layout_weight="25"
+		        android:background="#404040"
+	            android:scaleType="fitXY"/>
+	        	        
+	        <TextView
+	            android:id="@+id/Text_Main_Plate_3"
+	            android:layout_width="match_parent"
+	            android:layout_height="0dip"
+	            android:layout_weight="25"
+		        android:background="#404040"
+		        android:textColor="#a0a0a0"
+	            android:textStyle="bold"
+	            android:gravity="center"
+	            android:layout_marginBottom="1dip"
+	            android:typeface="monospace"/>
+	        
+	    </LinearLayout>
+	    	    
+	</LinearLayout>
+	
+		
+	
+	
+	
+</LinearLayout>
