@@ -3,6 +3,7 @@ package com.example.anprmobilesdk_003;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -24,11 +25,11 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
-import com.anprsystemsltd.sdk.mobile.ANPR;
-import com.anprsystemsltd.sdk.mobile.CameraInput;
-import com.anprsystemsltd.sdk.mobile.Event;
-import com.anprsystemsltd.sdk.mobile.Result;
-import com.anprsystemsltd.sdk.mobile.Tools;
+import com.anpr.sdk.mobile.ANPR;
+import com.anpr.sdk.mobile.CameraInput;
+import com.anpr.sdk.mobile.Event;
+import com.anpr.sdk.mobile.Result;
+import com.anpr.sdk.mobile.Tools;
 
 public class MainActivity extends Activity
 {
@@ -49,8 +50,14 @@ public class MainActivity extends Activity
     public void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
-        
-        this.setContentView(R.layout.main_activity);
+
+		Tools.checkPermissions(this, new String[] {
+				android.Manifest.permission.READ_PHONE_STATE,
+				Manifest.permission.CAMERA,
+				Manifest.permission.ACCESS_FINE_LOCATION
+		});
+
+		this.setContentView(R.layout.main_activity);
         
         context = getApplicationContext();	// get application context
         activityContext = this;
@@ -68,7 +75,7 @@ public class MainActivity extends Activity
 							
         parameters.licenseMode = ANPR.Parameters.LICENSE_MODE_ONLINE;	// SDK licence managed via WEB portal
 
-        parameters.requestNationality = "IND";		// at first run SDK will download the Indian ANPR native library into device file system (in background)
+        parameters.requestNationality = "FIN";		// at first run SDK will download the Indian ANPR native library into device file system (in background)
 
         anprSdk.init(parameters);	// init SDK
         
@@ -96,11 +103,12 @@ public class MainActivity extends Activity
 															// if not successfull, see event.result for the reason
 					if (event.success == true)	// if initializing successful
 					{
+						setTitle("ANPR_SDK ver:" + anprSdk.getVersion() + " - " + anprSdk.getUsedLibraryName() + " ID:" + anprSdk.getDeviceId());
 						startCamera();			// start the camera (see below)
 					}
 					else						// if initializing not successfull
 					{
-						exitWithError(event.result.errorMessage, event.result.data);
+						error(event.result.errorMessage, event.result.data);
 					}
 					break;
 			}
@@ -211,14 +219,14 @@ public class MainActivity extends Activity
             }
 			else
 			{
-				exitWithError(result.errorMessage, result.data);
+				error(result.errorMessage, result.data);
 			}
 
         
         }
 		else
 		{
-			exitWithError(cameraInputParameters.result.errorMessage, cameraInputParameters.result.data);
+			error(cameraInputParameters.result.errorMessage, cameraInputParameters.result.data);
 		}
 
 
@@ -286,16 +294,9 @@ public class MainActivity extends Activity
 		}
 	};
 
-	private void exitWithError(String aTitle, String aMessage)
+	private void error(String aTitle, String aMessage)
 	{
-		Handler handler = new Handler()
-		{
-			public void handleMessage(Message mes)
-			{
-				finish();	// exit
-			}
-		};
-		Tools.ShowMessageDialog(activityContext, aTitle, aMessage, handler);	// show error
+		Tools.ShowMessageDialog(activityContext, aTitle, aMessage, null);	// show error
 	}
 
 

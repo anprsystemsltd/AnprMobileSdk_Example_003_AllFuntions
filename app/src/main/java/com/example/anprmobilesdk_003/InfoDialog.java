@@ -2,8 +2,6 @@ package com.example.anprmobilesdk_003;
 
 import java.lang.reflect.Field;
 
-import com.anprsystemsltd.sdk.mobile.CameraInput;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -18,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.anpr.sdk.mobile.CameraInput;
 
 public class InfoDialog extends Dialog
 {
