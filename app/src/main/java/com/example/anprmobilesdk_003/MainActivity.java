@@ -75,7 +75,7 @@ public class MainActivity extends Activity
 							
         parameters.licenseMode = ANPR.Parameters.LICENSE_MODE_ONLINE;	// SDK licence managed via WEB portal
 
-        parameters.requestNationality = "FIN";		// at first run SDK will download the Indian ANPR native library into device file system (in background)
+        parameters.requestNationality = "HUN";		// at first run SDK will download the Indian ANPR native library into device file system (in background)
 
         anprSdk.init(parameters);	// init SDK
         
